@@ -1,0 +1,6 @@
+framework module Pods_FlightClient {
+  umbrella header "Pods-FlightClient-umbrella.h"
+
+  export *
+  module * { export * }
+}

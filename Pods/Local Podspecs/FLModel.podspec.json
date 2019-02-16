@@ -1,0 +1,24 @@
+{
+  "name": "FLModel",
+  "version": "0.0.3",
+  "summary": "A small podspec that allows Model classes to be reused from both a client and a server written in Swift",
+  "description": "Model classes for a test environment with Client Server architecture which can be reused for both making public structs.",
+  "license": "MIT",
+  "authors": {
+    "Jose Garcia": "lowyke@gmail.com"
+  },
+  "homepage": "https://www.apple.es",
+  "platforms": {
+    "ios": null
+  },
+  "source": {
+    "git": "https://github.com/lowyk/FLModel.git",
+    "tag": "0.0.3"
+  },
+  "source_files": "FLModel/**/*.{h,m,swift}",
+  "dependencies": {
+    "SwiftyJSON": [
+      "~> 4.2.0"
+    ]
+  }
+}

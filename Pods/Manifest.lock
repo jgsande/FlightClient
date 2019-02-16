@@ -1,0 +1,23 @@
+PODS:
+  - FLModel (0.0.3):
+    - SwiftyJSON (~> 4.2.0)
+  - SwiftyJSON (4.2.0)
+
+DEPENDENCIES:
+  - FLModel (from `../FLModel`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - SwiftyJSON
+
+EXTERNAL SOURCES:
+  FLModel:
+    :path: "../FLModel"
+
+SPEC CHECKSUMS:
+  FLModel: a1c6e360b1edde0e9d6a010cd96cb23b13bd0367
+  SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
+
+PODFILE CHECKSUM: cfd9107c49c0d31cccdba8fb64614b00daebdb94
+
+COCOAPODS: 1.5.3
