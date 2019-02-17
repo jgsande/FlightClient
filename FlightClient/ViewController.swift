@@ -14,10 +14,9 @@ class ViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+
         launchCoordinator = LaunchCoordinator.assemble()
 
         view.addSubview(launchCoordinator.rootViewController.view)
     }
 }
-

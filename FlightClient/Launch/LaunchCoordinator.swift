@@ -1,12 +1,6 @@
-//
-//  LaunchCoordinator.swift
-//  FlightClient
-//
-//  Created by Jose Garcia on 12/02/2019.
-//  Copyright © 2019 Jose Garcia. All rights reserved.
-//
-
 import UIKit
+
+// swiftlint:disable force_cast
 
 class LaunchCoordinator: LaunchCoordinating {
     var rootViewController: UIViewController!
@@ -17,16 +11,18 @@ class LaunchCoordinator: LaunchCoordinating {
         let view = storyboard.instantiateViewController(withIdentifier: "LaunchViewController") as! LaunchViewController
         let presenter = LaunchPresenter()
         let interactor = LaunchInteractor()
-        
+
         coordinator.rootViewController = view
-        
+
         view.presenter = presenter
-        
+
         presenter.view = view
         presenter.interactor = interactor
-        
+
         interactor.output = presenter
-        
+
         return coordinator
     }
 }
+
+// swiftlint:enable force_cast

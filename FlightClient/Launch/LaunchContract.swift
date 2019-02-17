@@ -20,6 +20,7 @@ protocol LaunchViewable: class {
 
     func showUserInfo(_ userInfo: UserInfo)
     func showErrorMessage(_ error: Error)
+    func showHelloWorld(_ string: String)
 }
 
 protocol LaunchPresenting {
@@ -27,6 +28,7 @@ protocol LaunchPresenting {
     var view: LaunchViewable! { get set }
 
     func viewDidAppear()
+    func getHelloWorld()
 }
 
 protocol LaunchInteracting {
@@ -38,5 +40,6 @@ protocol LaunchInteracting {
 
 protocol LaunchInteractingOutput: class {
     func didGetUserInfo(_ userInfo: UserInfo)
+    func didGetHelloWorld(_ string: String)
     func didReceiveError(_ error: Error)
 }

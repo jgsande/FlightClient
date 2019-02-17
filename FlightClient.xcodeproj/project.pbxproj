@@ -131,6 +131,7 @@
 			buildPhases = (
 				D0396DA278D21D8310DCB9A9 /* [CP] Check Pods Manifest.lock */,
 				BEC80CFE2212E82400156B65 /* Sources */,
+				BEFAE2262219B8CE0027A7B6 /* Run Script */,
 				BEC80CFF2212E82400156B65 /* Frameworks */,
 				BEC80D002212E82400156B65 /* Resources */,
 				221EDE6395E2DB4630EC6619 /* [CP] Embed Pods Frameworks */,
@@ -214,6 +215,24 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FlightClient/Pods-FlightClient-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		BEFAE2262219B8CE0027A7B6 /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint\n";
 		};
 		D0396DA278D21D8310DCB9A9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

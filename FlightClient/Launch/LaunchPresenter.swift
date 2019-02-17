@@ -16,6 +16,10 @@ class LaunchPresenter: LaunchPresenting {
     func viewDidAppear() {
         interactor.getUserInfo()
     }
+
+    func getHelloWorld() {
+        interactor.getHelloWorld()
+    }
 }
 
 extension LaunchPresenter: LaunchInteractingOutput {
@@ -23,7 +27,11 @@ extension LaunchPresenter: LaunchInteractingOutput {
         view.showUserInfo(userInfo)
     }
 
+    func didGetHelloWorld(_ string: String) {
+        view.showHelloWorld(string)
+    }
+
     func didReceiveError(_ error: Error) {
-        
+        view.showErrorMessage(error)
     }
 }

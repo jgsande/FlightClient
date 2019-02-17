@@ -12,34 +12,34 @@ import SwiftyJSON
 
 class LaunchInteractor: LaunchInteracting {
     weak var output: LaunchInteractingOutput?
-    
+
     private let defaultSession: URLSession
     private var dataTask: URLSessionDataTask?
-    
+
     init() {
         let configuration = URLSessionConfiguration.default
         configuration.timeoutIntervalForResource = 3.0
         defaultSession = URLSession(configuration: configuration)
     }
-    
+
     func getHelloWorld() {
-        guard let url = URL(string: "https://localhost.com:8080/hello") else { return }
-        
-        get(url: url) { data ,error in
+        guard let url = URL(string: "http://localhost.com:8080/hello") else { return }
+
+        get(url: url) { data, error in
             guard let data = data else {
                 self.output?.didReceiveError(error!)
                 return
             }
 
-            let string = String(bytes: data, encoding: .utf8)
-
+            let string = String(bytes: data, encoding: .utf8)!
+            self.output?.didGetHelloWorld(string)
         }
     }
 
     func getUserInfo() {
-        guard let url = URL(string: "https://localhost.com:8080/user") else { return }
-        
-        get(url: url) { data ,error in
+        guard let url = URL(string: "http://localhost.com:8080/user") else { return }
+
+        get(url: url) { data, error in
             guard let data = data else {
                 self.output?.didReceiveError(error!)
                 return
@@ -55,16 +55,14 @@ class LaunchInteractor: LaunchInteracting {
             }
         }
     }
-    
-    private func get(url: URL, completion: @escaping (Data?, Error?)->Void ) {
-        
-        dataTask?.cancel()
 
+    private func get(url: URL, completion: @escaping (Data?, Error?) -> Void) {
+        dataTask?.cancel()
         dataTask = defaultSession.dataTask(with: url) { [weak self] data, response, error in
             guard let self = self else { return }
 
             defer { self.dataTask = nil }
-        
+
             if let error = error {
                 DispatchQueue.main.async {
                     completion(nil, error)

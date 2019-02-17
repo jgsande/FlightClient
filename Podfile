@@ -5,4 +5,5 @@ target 'FlightClient' do
   use_frameworks!
 
   pod 'FLModel', :path => '../FLModel'
+  pod 'SwiftLint'
 end

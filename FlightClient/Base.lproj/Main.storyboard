@@ -52,14 +52,25 @@
                                     <action selector="didPressButton:" destination="fsE-Dy-BOI" eventType="touchUpInside" id="JwX-wi-dAD"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qsN-4S-CBY">
+                                <rect key="frame" x="166.5" y="333" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="qsN-4S-CBY" firstAttribute="centerY" secondItem="Dyu-j6-zU4" secondAttribute="centerY" id="JFe-n9-ubA"/>
+                            <constraint firstItem="qsN-4S-CBY" firstAttribute="centerX" secondItem="Dyu-j6-zU4" secondAttribute="centerX" id="Tfd-6A-Gsj"/>
                             <constraint firstItem="Dyu-j6-zU4" firstAttribute="bottom" secondItem="wIn-Wt-gxb" secondAttribute="bottom" constant="80" id="b6h-cS-oUj"/>
                             <constraint firstItem="wIn-Wt-gxb" firstAttribute="centerX" secondItem="Dyu-j6-zU4" secondAttribute="centerX" id="fdR-iG-vM9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Dyu-j6-zU4"/>
                     </view>
+                    <connections>
+                        <outlet property="label" destination="qsN-4S-CBY" id="u18-TE-kFJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DLa-LL-EKi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
