@@ -15,7 +15,7 @@ class LaunchInteractor: LaunchInteracting {
     }
 
     func getHelloWorld() {
-        guard let url = URL(string: "http://localhost.com:8080/hello") else { return }
+        guard let url = URL(string: "http://localhost:8080/hello") else { return }
 
         get(url: url) { data, error in
             guard let data = data else {
@@ -29,11 +29,11 @@ class LaunchInteractor: LaunchInteracting {
     }
 
     func getUserInfo() {
-        guard let url = URL(string: "http://localhost.com:8080/user") else { return }
+        guard let url = URL(string: "http://localhost:8080/user") else { return }
 
         get(url: url) { data, error in
             guard let data = data else {
-                self.output?.didReceiveError(error!)
+//                self.output?.didReceiveError(error!)
                 return
             }
 
@@ -66,7 +66,9 @@ class LaunchInteractor: LaunchInteracting {
                     completion(nil, nil)
                 }
             } else if let data = data {
-                completion(data, nil)
+                DispatchQueue.main.async {
+                    completion(data, nil)
+                }
             }
         }
 
