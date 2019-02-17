@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  FlightClient
-//
-//  Created by Jose Garcia on 12/02/2019.
-//  Copyright © 2019 Jose Garcia. All rights reserved.
-//
-
 import UIKit
 
 // swiftlint:disable line_length
