@@ -21,8 +21,8 @@ extension LaunchViewController: LaunchViewable {
         print(userInfo)
     }
 
-    func showErrorMessage(_ error: Error) {
-        print(error.localizedDescription)
+    func showErrorMessage(_ error: Error?) {
+        print(error?.localizedDescription ?? "Oops")
     }
 
     func showHelloWorld(_ string: String) {

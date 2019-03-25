@@ -8,6 +8,7 @@ class ViewController: UIViewController {
         super.viewDidAppear(animated)
 
         launchCoordinator = LaunchCoordinator.assemble()
+        FlightRouteBuilder.updateApi(api: ApiConfiguration(apiServer: .dev))
 
         view.addSubview(launchCoordinator.rootViewController.view)
     }

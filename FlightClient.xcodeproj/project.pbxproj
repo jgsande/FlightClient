@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		BD70135BB61E48F5E71EAF45 /* Pods_FlightClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D29E417B469EB72AC992237 /* Pods_FlightClient.framework */; };
+		BE8027862242555F00DA8690 /* ApiConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8027852242555F00DA8690 /* ApiConfiguration.swift */; };
+		BE802789224256F800DA8690 /* FlightRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE802788224256F800DA8690 /* FlightRoutes.swift */; };
 		BEA740742212EEB0006D8610 /* LaunchContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA740732212EEB0006D8610 /* LaunchContract.swift */; };
 		BEA740762212EF50006D8610 /* LaunchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA740752212EF50006D8610 /* LaunchPresenter.swift */; };
 		BEA740782212F03E006D8610 /* LaunchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA740772212F03E006D8610 /* LaunchInteractor.swift */; };
@@ -25,6 +27,8 @@
 		2981867433D9A73491B5B419 /* Pods-FlightClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlightClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlightClient/Pods-FlightClient.release.xcconfig"; sourceTree = "<group>"; };
 		94EBD862B0E994EFCBEB67E6 /* Pods-FlightClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlightClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlightClient/Pods-FlightClient.debug.xcconfig"; sourceTree = "<group>"; };
 		9D29E417B469EB72AC992237 /* Pods_FlightClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlightClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE8027852242555F00DA8690 /* ApiConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConfiguration.swift; sourceTree = "<group>"; };
+		BE802788224256F800DA8690 /* FlightRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightRoutes.swift; sourceTree = "<group>"; };
 		BEA740732212EEB0006D8610 /* LaunchContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchContract.swift; sourceTree = "<group>"; };
 		BEA740752212EF50006D8610 /* LaunchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchPresenter.swift; sourceTree = "<group>"; };
 		BEA740772212F03E006D8610 /* LaunchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchInteractor.swift; sourceTree = "<group>"; };
@@ -59,6 +63,22 @@
 				2981867433D9A73491B5B419 /* Pods-FlightClient.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		BE8027842242554A00DA8690 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				BE8027852242555F00DA8690 /* ApiConfiguration.swift */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		BE802787224256D000DA8690 /* Routes */ = {
+			isa = PBXGroup;
+			children = (
+				BE802788224256F800DA8690 /* FlightRoutes.swift */,
+			);
+			path = Routes;
 			sourceTree = "<group>";
 		};
 		BEA740722212EE85006D8610 /* Launch */ = {
@@ -102,6 +122,8 @@
 		BEC80D042212E82400156B65 /* FlightClient */ = {
 			isa = PBXGroup;
 			children = (
+				BE802787224256D000DA8690 /* Routes */,
+				BE8027842242554A00DA8690 /* Configuration */,
 				BEA7407B221317FF006D8610 /* Extensions */,
 				BEA740722212EE85006D8610 /* Launch */,
 				BEC80D052212E82400156B65 /* AppDelegate.swift */,
@@ -265,8 +287,10 @@
 			files = (
 				BEC80D082212E82400156B65 /* ViewController.swift in Sources */,
 				BEA740742212EEB0006D8610 /* LaunchContract.swift in Sources */,
+				BE8027862242555F00DA8690 /* ApiConfiguration.swift in Sources */,
 				BEC80D062212E82400156B65 /* AppDelegate.swift in Sources */,
 				BEA740762212EF50006D8610 /* LaunchPresenter.swift in Sources */,
+				BE802789224256F800DA8690 /* FlightRoutes.swift in Sources */,
 				BEA740782212F03E006D8610 /* LaunchInteractor.swift in Sources */,
 				BEA7407D2213181B006D8610 /* ViewController+Storyboard.swift in Sources */,
 				BEA7407A22131773006D8610 /* LaunchCoordinator.swift in Sources */,

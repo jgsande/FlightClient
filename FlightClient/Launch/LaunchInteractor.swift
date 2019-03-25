@@ -15,11 +15,11 @@ class LaunchInteractor: LaunchInteracting {
     }
 
     func getHelloWorld() {
-        guard let url = URL(string: "http://localhost:8080/hello") else { return }
+        guard let url = FlightRouteBuilder.routeUrl(.helloWorld) else { return }
 
         get(url: url) { data, error in
             guard let data = data else {
-                self.output?.didReceiveError(error!)
+                self.output?.didReceiveError(error)
                 return
             }
 
@@ -29,7 +29,7 @@ class LaunchInteractor: LaunchInteracting {
     }
 
     func getUserInfo() {
-        guard let url = URL(string: "http://localhost:8080/user") else { return }
+        guard let url = FlightRouteBuilder.routeUrl(.user) else { return }
 
         get(url: url) { data, error in
             guard let data = data else {

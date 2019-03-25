@@ -23,7 +23,7 @@ extension LaunchPresenter: LaunchInteractingOutput {
         view.showHelloWorld(string)
     }
 
-    func didReceiveError(_ error: Error) {
+    func didReceiveError(_ error: Error?) {
         view.showErrorMessage(error)
     }
 }

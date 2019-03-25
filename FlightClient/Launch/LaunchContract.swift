@@ -11,7 +11,7 @@ protocol LaunchViewable: class {
     var coordinator: LaunchCoordinating! { get set }
 
     func showUserInfo(_ userInfo: UserInfo)
-    func showErrorMessage(_ error: Error)
+    func showErrorMessage(_ error: Error?)
     func showHelloWorld(_ string: String)
 }
 
@@ -33,5 +33,5 @@ protocol LaunchInteracting {
 protocol LaunchInteractingOutput: class {
     func didGetUserInfo(_ userInfo: UserInfo)
     func didGetHelloWorld(_ string: String)
-    func didReceiveError(_ error: Error)
+    func didReceiveError(_ error: Error?)
 }
