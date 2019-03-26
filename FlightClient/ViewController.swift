@@ -1,5 +1,4 @@
 import UIKit
-import FLModel
 
 class ViewController: UIViewController {
     var launchCoordinator: LaunchCoordinating!

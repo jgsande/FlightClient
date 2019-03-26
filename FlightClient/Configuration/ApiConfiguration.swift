@@ -1,7 +1,7 @@
 import Foundation
 
 enum ApiServer: String {
-    case prod = "https://heroku.com"
+    case prod = "https://flight-gsd.herokuapp.com"
     case dev = "http://localhost:8080"
 }
 

@@ -1,27 +1,20 @@
 PODS:
-  - FLModel (0.0.3):
-    - SwiftyJSON (~> 4.2.0)
   - SwiftLint (0.28.1)
   - SwiftyJSON (4.2.0)
 
 DEPENDENCIES:
-  - FLModel (from `../FLModel`)
   - SwiftLint
+  - SwiftyJSON
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - SwiftLint
     - SwiftyJSON
 
-EXTERNAL SOURCES:
-  FLModel:
-    :path: "../FLModel"
-
 SPEC CHECKSUMS:
-  FLModel: a1c6e360b1edde0e9d6a010cd96cb23b13bd0367
   SwiftLint: 7f5f7de0da74a649b16616cb5246ae323489656e
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: e04fe488241a9e75a4a60b28d9a17eac8ae8c83d
+PODFILE CHECKSUM: 177547e9c7adee2a85f93974a7ef3be4a054baf7
 
 COCOAPODS: 1.5.3

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		BD70135BB61E48F5E71EAF45 /* Pods_FlightClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D29E417B469EB72AC992237 /* Pods_FlightClient.framework */; };
+		BE5B7A692248FF0F00BEE7C6 /* ApiResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5B7A682248FF0F00BEE7C6 /* ApiResult.swift */; };
+		BE5B7A6B2248FFAB00BEE7C6 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5B7A6A2248FFAB00BEE7C6 /* UserInfo.swift */; };
 		BE8027862242555F00DA8690 /* ApiConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8027852242555F00DA8690 /* ApiConfiguration.swift */; };
 		BE802789224256F800DA8690 /* FlightRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE802788224256F800DA8690 /* FlightRoutes.swift */; };
 		BEA740742212EEB0006D8610 /* LaunchContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA740732212EEB0006D8610 /* LaunchContract.swift */; };
@@ -27,6 +29,8 @@
 		2981867433D9A73491B5B419 /* Pods-FlightClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlightClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlightClient/Pods-FlightClient.release.xcconfig"; sourceTree = "<group>"; };
 		94EBD862B0E994EFCBEB67E6 /* Pods-FlightClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlightClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlightClient/Pods-FlightClient.debug.xcconfig"; sourceTree = "<group>"; };
 		9D29E417B469EB72AC992237 /* Pods_FlightClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlightClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE5B7A682248FF0F00BEE7C6 /* ApiResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResult.swift; sourceTree = "<group>"; };
+		BE5B7A6A2248FFAB00BEE7C6 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		BE8027852242555F00DA8690 /* ApiConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConfiguration.swift; sourceTree = "<group>"; };
 		BE802788224256F800DA8690 /* FlightRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightRoutes.swift; sourceTree = "<group>"; };
 		BEA740732212EEB0006D8610 /* LaunchContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchContract.swift; sourceTree = "<group>"; };
@@ -63,6 +67,15 @@
 				2981867433D9A73491B5B419 /* Pods-FlightClient.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		BE5B7A672248FEFC00BEE7C6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BE5B7A682248FF0F00BEE7C6 /* ApiResult.swift */,
+				BE5B7A6A2248FFAB00BEE7C6 /* UserInfo.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		BE8027842242554A00DA8690 /* Configuration */ = {
@@ -122,6 +135,7 @@
 		BEC80D042212E82400156B65 /* FlightClient */ = {
 			isa = PBXGroup;
 			children = (
+				BE5B7A672248FEFC00BEE7C6 /* Models */,
 				BE802787224256D000DA8690 /* Routes */,
 				BE8027842242554A00DA8690 /* Configuration */,
 				BEA7407B221317FF006D8610 /* Extensions */,
@@ -156,7 +170,7 @@
 				BEFAE2262219B8CE0027A7B6 /* Run Script */,
 				BEC80CFF2212E82400156B65 /* Frameworks */,
 				BEC80D002212E82400156B65 /* Resources */,
-				221EDE6395E2DB4630EC6619 /* [CP] Embed Pods Frameworks */,
+				846E3EB73515BF5423882EDD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -214,7 +228,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		221EDE6395E2DB4630EC6619 /* [CP] Embed Pods Frameworks */ = {
+		846E3EB73515BF5423882EDD /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -223,14 +237,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-FlightClient/Pods-FlightClient-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/FLModel/FLModel.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FLModel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,11 +301,13 @@
 				BEA740742212EEB0006D8610 /* LaunchContract.swift in Sources */,
 				BE8027862242555F00DA8690 /* ApiConfiguration.swift in Sources */,
 				BEC80D062212E82400156B65 /* AppDelegate.swift in Sources */,
+				BE5B7A6B2248FFAB00BEE7C6 /* UserInfo.swift in Sources */,
 				BEA740762212EF50006D8610 /* LaunchPresenter.swift in Sources */,
 				BE802789224256F800DA8690 /* FlightRoutes.swift in Sources */,
 				BEA740782212F03E006D8610 /* LaunchInteractor.swift in Sources */,
 				BEA7407D2213181B006D8610 /* ViewController+Storyboard.swift in Sources */,
 				BEA7407A22131773006D8610 /* LaunchCoordinator.swift in Sources */,
+				BE5B7A692248FF0F00BEE7C6 /* ApiResult.swift in Sources */,
 				BEA7408122131A32006D8610 /* LaunchViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

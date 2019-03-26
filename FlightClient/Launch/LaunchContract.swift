@@ -1,5 +1,4 @@
-import Foundation
-import FLModel
+import UIKit
 
 protocol LaunchCoordinating: class {
     var rootViewController: UIViewController! { get set }

@@ -1,5 +1,4 @@
 import UIKit
-import FLModel
 
 class LaunchViewController: UIViewController {
     var presenter: LaunchPresenting!

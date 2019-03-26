@@ -1,5 +1,4 @@
 import Foundation
-import FLModel
 
 class LaunchPresenter: LaunchPresenting {
     var interactor: LaunchInteracting!

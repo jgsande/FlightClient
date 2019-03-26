@@ -1,6 +1,0 @@
-framework module FLModel {
-  umbrella header "FLModel-umbrella.h"
-
-  export *
-  module * { export * }
-}
