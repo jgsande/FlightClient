@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BD70135BB61E48F5E71EAF45 /* Pods_FlightClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D29E417B469EB72AC992237 /* Pods_FlightClient.framework */; };
+		BE0C76872281D836003B0B19 /* JWTTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0C76862281D836003B0B19 /* JWTTokens.swift */; };
 		BE5B7A692248FF0F00BEE7C6 /* ApiResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5B7A682248FF0F00BEE7C6 /* ApiResult.swift */; };
 		BE5B7A6B2248FFAB00BEE7C6 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5B7A6A2248FFAB00BEE7C6 /* UserInfo.swift */; };
 		BE8027862242555F00DA8690 /* ApiConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8027852242555F00DA8690 /* ApiConfiguration.swift */; };
@@ -29,6 +30,7 @@
 		2981867433D9A73491B5B419 /* Pods-FlightClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlightClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlightClient/Pods-FlightClient.release.xcconfig"; sourceTree = "<group>"; };
 		94EBD862B0E994EFCBEB67E6 /* Pods-FlightClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlightClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlightClient/Pods-FlightClient.debug.xcconfig"; sourceTree = "<group>"; };
 		9D29E417B469EB72AC992237 /* Pods_FlightClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlightClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE0C76862281D836003B0B19 /* JWTTokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTTokens.swift; sourceTree = "<group>"; };
 		BE5B7A682248FF0F00BEE7C6 /* ApiResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResult.swift; sourceTree = "<group>"; };
 		BE5B7A6A2248FFAB00BEE7C6 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		BE8027852242555F00DA8690 /* ApiConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConfiguration.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 			children = (
 				BE5B7A682248FF0F00BEE7C6 /* ApiResult.swift */,
 				BE5B7A6A2248FFAB00BEE7C6 /* UserInfo.swift */,
+				BE0C76862281D836003B0B19 /* JWTTokens.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 				TargetAttributes = {
 					BEC80D012212E82400156B65 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -238,12 +242,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-FlightClient/Pods-FlightClient-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/TermiNetwork/TermiNetwork.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TermiNetwork.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -306,6 +312,7 @@
 				BE802789224256F800DA8690 /* FlightRoutes.swift in Sources */,
 				BEA740782212F03E006D8610 /* LaunchInteractor.swift in Sources */,
 				BEA7407D2213181B006D8610 /* ViewController+Storyboard.swift in Sources */,
+				BE0C76872281D836003B0B19 /* JWTTokens.swift in Sources */,
 				BEA7407A22131773006D8610 /* LaunchCoordinator.swift in Sources */,
 				BE5B7A692248FF0F00BEE7C6 /* ApiResult.swift in Sources */,
 				BEA7408122131A32006D8610 /* LaunchViewController.swift in Sources */,
@@ -464,7 +471,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = josegarcia.FlightClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -483,7 +490,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = josegarcia.FlightClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

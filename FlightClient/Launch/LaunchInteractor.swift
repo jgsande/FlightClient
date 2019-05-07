@@ -1,5 +1,6 @@
 import Foundation
 import SwiftyJSON
+import TermiNetwork
 
 class LaunchInteractor: LaunchInteracting {
     weak var output: LaunchInteractingOutput?
@@ -13,68 +14,92 @@ class LaunchInteractor: LaunchInteracting {
         defaultSession = URLSession(configuration: configuration)
     }
 
-    func getHelloWorld() {
-        guard let url = FlightRouteBuilder.routeUrl(.helloWorld) else { return }
+    func signIn(login: String, password: String) {
+        let params = ["login": login, "password": password]
 
-        request(url) { (result: Result<StringWrapper, ApiError>) in
-            switch result {
-            case .success(let stringWrapper):
-                self.output?.didGetHelloWorld(stringWrapper.string)
-            case .failure(let error):
-                self.output?.didReceiveError(error)
-            }
+        post(url: FlightRouteBuilder.routeUrl(.signIn),
+             headers: nil,
+             params: params) { [weak self] (result: Result<JWTTokens, ApiError>) in
+                guard let self = self else { return }
+
+                 switch result {
+                 case .success(let jwtTokens):
+                    self.persist(jwtTokens: jwtTokens)
+                    self.output?.didSignIn()
+                 case .failure(let error):
+                     self.output?.didReceiveError(error)
+                 }
+        }
+    }
+
+    private enum JWTTokenConstants: String {
+        case accessToken
+        case refreshToken
+        case expiredAt
+    }
+
+    private func persist(jwtTokens: JWTTokens) {
+        UserDefaults.standard.set(jwtTokens.accessToken, forKey: JWTTokenConstants.accessToken.rawValue)
+        UserDefaults.standard.set(jwtTokens.refreshToken, forKey: JWTTokenConstants.refreshToken.rawValue)
+        UserDefaults.standard.set(jwtTokens.expiredAt, forKey: JWTTokenConstants.expiredAt.rawValue)
+    }
+
+    func signUp(login: String, password: String) {
+        let params = ["login": login, "password": password]
+
+        post(url: FlightRouteBuilder.routeUrl(.signUp),
+             headers: nil,
+             params: params) { (result: Result<JWTTokens, ApiError>) in
+                switch result {
+                case .success:
+                    self.output?.didSignUp()
+                case .failure(let error):
+                    self.output?.didReceiveError(error)
+                }
         }
     }
 
     func getUserInfo() {
-        guard let url = FlightRouteBuilder.routeUrl(.user) else { return }
-
-        request(url) { (result: Result<UserInfo, ApiError>) in
-            switch result {
-            case .success(let userInfo):
-                self.output?.didGetUserInfo(userInfo)
-            case .failure(let error):
-                self.output?.didReceiveError(error)
-            }
+        get(url: FlightRouteBuilder.routeUrl(.user),
+            headers: nil,
+            params: nil) { (result: Result<UserInfo, ApiError>) in
+                switch result {
+                case .success(let userInfo):
+                    self.output?.didGetUserInfo(userInfo)
+                case .failure(let error):
+                    self.output?.didReceiveError(error)
+                }
         }
     }
 
-    private func request<T: ApiResult>(_ url: URL, completion: @escaping (Result<T, ApiError>) -> Void) {
-        dataTask?.cancel()
-        dataTask = defaultSession.dataTask(with: url) { [weak self] data, response, error in
-            guard let self = self else { return }
+    private func get<T: ApiResult>(url: String,
+                                   headers: [String: String]?,
+                                   params: [String: String]?,
+                                   completion: @escaping (Result<T, ApiError>) -> Void) {
+        request(url: url, method: .get, headers: headers, params: params, completion: completion)
+    }
 
-            defer { self.dataTask = nil }
+    private func post<T: ApiResult>(url: String,
+                                    headers: [String: String]?,
+                                    params: [String: String]?,
+                                    completion: @escaping (Result<T, ApiError>) -> Void) {
+        request(url: url, method: .post, headers: headers, params: params, completion: completion)
+    }
 
-            // detect JWT expiry date error, retry
-            if let error = error {
-                DispatchQueue.main.async {
-                    completion(.failure(ApiError.errorCode(error.localizedDescription)))
-                }
-            } else if let response = response as? HTTPURLResponse,
-                response.statusCode != 200 {
-
-                DispatchQueue.main.async {
-                    completion(.failure(ApiError.errorCode("\(response.statusCode)")))
-                }
-            } else if let data = data {
-                var jsonData: JSON
-                do {
-                    jsonData = try JSON(data: data)
-                } catch {
-                    DispatchQueue.main.async {
+    private func request<T: ApiResult>(url: String,
+                                       method: TNMethod,
+                                       headers: [String: String]?,
+                                       params: [String: String]?,
+                                       completion: @escaping (Result<T, ApiError>) -> Void) {
+        let request = TNRequest(method: method, url: url, headers: headers, params: params)
+        request.start(responseType: T.self,
+                      onSuccess: { (json) in
+                        completion(.success(json))
+        },
+                      onFailure: { (error, _) in
+                        print(error)
                         completion(.failure(ApiError.errorCode(error.localizedDescription)))
-                    }
-
-                    return
-                }
-                DispatchQueue.main.async {
-                    completion(.success(T.decodeFrom(json: jsonData)))
-                }
-            }
-        }
-
-        dataTask?.resume()
+        })
     }
 }
 

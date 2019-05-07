@@ -1,20 +1,25 @@
 PODS:
   - SwiftLint (0.28.1)
   - SwiftyJSON (4.2.0)
+  - TermiNetwork (0.3.1):
+    - SwiftyJSON (~> 4.0)
 
 DEPENDENCIES:
   - SwiftLint
   - SwiftyJSON
+  - TermiNetwork (~> 0.3)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - SwiftLint
     - SwiftyJSON
+    - TermiNetwork
 
 SPEC CHECKSUMS:
   SwiftLint: 7f5f7de0da74a649b16616cb5246ae323489656e
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
+  TermiNetwork: ab58864af196bb20e03c6c734825acddf074a702
 
-PODFILE CHECKSUM: 177547e9c7adee2a85f93974a7ef3be4a054baf7
+PODFILE CHECKSUM: 0487828c58d9c1789ef2e9e1debb8b909ff7dcdb
 
 COCOAPODS: 1.5.3

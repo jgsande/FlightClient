@@ -8,18 +8,22 @@ class LaunchPresenter: LaunchPresenting {
         interactor.getUserInfo()
     }
 
-    func getHelloWorld() {
-        interactor.getHelloWorld()
+    func signIn(login: String, password: String) {
+        interactor.signIn(login: login, password: password)
     }
 }
 
 extension LaunchPresenter: LaunchInteractingOutput {
-    func didGetUserInfo(_ userInfo: UserInfo) {
-        view.showUserInfo(userInfo)
+    func didSignIn() {
+        view.didSignIn()
     }
 
-    func didGetHelloWorld(_ string: String) {
-        view.showHelloWorld(string)
+    func didSignUp() {
+        view.didSignUp()
+    }
+
+    func didGetUserInfo(_ userInfo: UserInfo) {
+        //
     }
 
     func didReceiveError(_ error: Error?) {

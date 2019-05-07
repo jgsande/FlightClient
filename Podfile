@@ -5,4 +5,5 @@ target 'FlightClient' do
   use_frameworks!
   pod 'SwiftyJSON'
   pod 'SwiftLint'
+  pod 'TermiNetwork', '~> 0.3'
 end

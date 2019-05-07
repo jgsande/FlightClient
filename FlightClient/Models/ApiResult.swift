@@ -1,6 +1,6 @@
 import Foundation
 import SwiftyJSON
 
-protocol ApiResult {
+protocol ApiResult: Decodable {
     static func decodeFrom(json: JSON) -> ApiResult
 }
