@@ -20,13 +20,14 @@ protocol LaunchPresenting {
 
     func viewDidAppear()
     func signIn(login: String, password: String)
+    func signUp(login: String, password: String)
 }
 
 protocol LaunchInteracting {
     var output: LaunchInteractingOutput? { get set }
 
     func signIn(login: String, password: String)
-    func getUserInfo()
+    func signUp(login: String, password: String)
 }
 
 protocol LaunchInteractingOutput: class {

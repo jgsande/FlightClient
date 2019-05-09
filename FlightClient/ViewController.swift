@@ -1,4 +1,5 @@
 import UIKit
+import TermiNetwork
 
 class ViewController: UIViewController {
     var launchCoordinator: LaunchCoordinating!
@@ -7,7 +8,7 @@ class ViewController: UIViewController {
         super.viewDidAppear(animated)
 
         launchCoordinator = LaunchCoordinator.assemble()
-        FlightRouteBuilder.updateApi(api: ApiConfiguration(apiServer: .dev))
+        TNEnvironment.set(Environment.localhost)
 
         view.addSubview(launchCoordinator.rootViewController.view)
     }

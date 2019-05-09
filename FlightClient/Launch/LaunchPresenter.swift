@@ -5,11 +5,14 @@ class LaunchPresenter: LaunchPresenting {
     weak var view: LaunchViewable!
 
     func viewDidAppear() {
-        interactor.getUserInfo()
     }
 
     func signIn(login: String, password: String) {
         interactor.signIn(login: login, password: password)
+    }
+
+    func signUp(login: String, password: String) {
+        interactor.signUp(login: login, password: password)
     }
 }
 

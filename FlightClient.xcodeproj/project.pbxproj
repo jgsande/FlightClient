@@ -11,8 +11,9 @@
 		BE0C76872281D836003B0B19 /* JWTTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0C76862281D836003B0B19 /* JWTTokens.swift */; };
 		BE5B7A692248FF0F00BEE7C6 /* ApiResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5B7A682248FF0F00BEE7C6 /* ApiResult.swift */; };
 		BE5B7A6B2248FFAB00BEE7C6 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5B7A6A2248FFAB00BEE7C6 /* UserInfo.swift */; };
-		BE8027862242555F00DA8690 /* ApiConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8027852242555F00DA8690 /* ApiConfiguration.swift */; };
-		BE802789224256F800DA8690 /* FlightRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE802788224256F800DA8690 /* FlightRoutes.swift */; };
+		BE67F4552284332A00C4F63F /* UserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE67F4542284332A00C4F63F /* UserRouter.swift */; };
+		BE67F4572284810A00C4F63F /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE67F4562284810A00C4F63F /* Environment.swift */; };
+		BE67F45A2284871000C4F63F /* JWTManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE67F4592284871000C4F63F /* JWTManager.swift */; };
 		BEA740742212EEB0006D8610 /* LaunchContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA740732212EEB0006D8610 /* LaunchContract.swift */; };
 		BEA740762212EF50006D8610 /* LaunchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA740752212EF50006D8610 /* LaunchPresenter.swift */; };
 		BEA740782212F03E006D8610 /* LaunchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA740772212F03E006D8610 /* LaunchInteractor.swift */; };
@@ -33,8 +34,9 @@
 		BE0C76862281D836003B0B19 /* JWTTokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTTokens.swift; sourceTree = "<group>"; };
 		BE5B7A682248FF0F00BEE7C6 /* ApiResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResult.swift; sourceTree = "<group>"; };
 		BE5B7A6A2248FFAB00BEE7C6 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
-		BE8027852242555F00DA8690 /* ApiConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConfiguration.swift; sourceTree = "<group>"; };
-		BE802788224256F800DA8690 /* FlightRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightRoutes.swift; sourceTree = "<group>"; };
+		BE67F4542284332A00C4F63F /* UserRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRouter.swift; sourceTree = "<group>"; };
+		BE67F4562284810A00C4F63F /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		BE67F4592284871000C4F63F /* JWTManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTManager.swift; sourceTree = "<group>"; };
 		BEA740732212EEB0006D8610 /* LaunchContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchContract.swift; sourceTree = "<group>"; };
 		BEA740752212EF50006D8610 /* LaunchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchPresenter.swift; sourceTree = "<group>"; };
 		BEA740772212F03E006D8610 /* LaunchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchInteractor.swift; sourceTree = "<group>"; };
@@ -81,10 +83,18 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		BE67F458228486FB00C4F63F /* JWT */ = {
+			isa = PBXGroup;
+			children = (
+				BE67F4592284871000C4F63F /* JWTManager.swift */,
+			);
+			path = JWT;
+			sourceTree = "<group>";
+		};
 		BE8027842242554A00DA8690 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
-				BE8027852242555F00DA8690 /* ApiConfiguration.swift */,
+				BE67F4562284810A00C4F63F /* Environment.swift */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -92,7 +102,7 @@
 		BE802787224256D000DA8690 /* Routes */ = {
 			isa = PBXGroup;
 			children = (
-				BE802788224256F800DA8690 /* FlightRoutes.swift */,
+				BE67F4542284332A00C4F63F /* UserRouter.swift */,
 			);
 			path = Routes;
 			sourceTree = "<group>";
@@ -138,6 +148,7 @@
 		BEC80D042212E82400156B65 /* FlightClient */ = {
 			isa = PBXGroup;
 			children = (
+				BE67F458228486FB00C4F63F /* JWT */,
 				BE5B7A672248FEFC00BEE7C6 /* Models */,
 				BE802787224256D000DA8690 /* Routes */,
 				BE8027842242554A00DA8690 /* Configuration */,
@@ -305,17 +316,18 @@
 			files = (
 				BEC80D082212E82400156B65 /* ViewController.swift in Sources */,
 				BEA740742212EEB0006D8610 /* LaunchContract.swift in Sources */,
-				BE8027862242555F00DA8690 /* ApiConfiguration.swift in Sources */,
 				BEC80D062212E82400156B65 /* AppDelegate.swift in Sources */,
+				BE67F4572284810A00C4F63F /* Environment.swift in Sources */,
 				BE5B7A6B2248FFAB00BEE7C6 /* UserInfo.swift in Sources */,
 				BEA740762212EF50006D8610 /* LaunchPresenter.swift in Sources */,
-				BE802789224256F800DA8690 /* FlightRoutes.swift in Sources */,
 				BEA740782212F03E006D8610 /* LaunchInteractor.swift in Sources */,
 				BEA7407D2213181B006D8610 /* ViewController+Storyboard.swift in Sources */,
 				BE0C76872281D836003B0B19 /* JWTTokens.swift in Sources */,
 				BEA7407A22131773006D8610 /* LaunchCoordinator.swift in Sources */,
+				BE67F4552284332A00C4F63F /* UserRouter.swift in Sources */,
 				BE5B7A692248FF0F00BEE7C6 /* ApiResult.swift in Sources */,
 				BEA7408122131A32006D8610 /* LaunchViewController.swift in Sources */,
+				BE67F45A2284871000C4F63F /* JWTManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
