@@ -14,7 +14,9 @@ class LaunchInteractor: LaunchInteracting {
                         JWTManager.standard.persist(jwtTokens: jwtTokens)
                         self.output?.didSignIn()
         },
-                       onFailure: { (error, _) in
+                       onFailure: { [weak self] (error, _) in
+                        guard let self = self else { return }
+
                         self.output?.didReceiveError(error)
         })
     }
@@ -27,7 +29,9 @@ class LaunchInteractor: LaunchInteracting {
 
                         self.output?.didSignUp()
         },
-                       onFailure: { (error, _) in
+                       onFailure: { [weak self] (error, _) in
+                        guard let self = self else { return }
+
                         self.output?.didReceiveError(error)
         })
     }
