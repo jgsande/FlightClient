@@ -32,6 +32,8 @@ class LaunchViewController: UIViewController {
 extension LaunchViewController: LaunchViewable {
     func didSignIn() {
         print("didSignIn")
+        presenter.createProject(title: "Title THIS")
+        presenter.getProjects()
     }
 
     func didSignUp() {
@@ -44,6 +46,10 @@ extension LaunchViewController: LaunchViewable {
 
     func showErrorMessage(_ error: Error?) {
         print(error?.localizedDescription ?? "Oops")
+    }
+
+    func didReceiveProjects(_ projects: [Project]) {
+        print(projects)
     }
 }
 

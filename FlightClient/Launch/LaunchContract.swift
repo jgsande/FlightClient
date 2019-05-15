@@ -11,6 +11,7 @@ protocol LaunchViewable: class {
 
     func didSignIn()
     func didSignUp()
+    func didReceiveProjects(_ projects: [Project])
     func showErrorMessage(_ error: Error?)
 }
 
@@ -21,6 +22,8 @@ protocol LaunchPresenting {
     func viewDidAppear()
     func signIn(login: String, password: String)
     func signUp(login: String, password: String)
+    func createProject(title: String)
+    func getProjects()
 }
 
 protocol LaunchInteracting {
@@ -28,11 +31,14 @@ protocol LaunchInteracting {
 
     func signIn(login: String, password: String)
     func signUp(login: String, password: String)
+    func createProject(title: String)
+    func getProjects()
 }
 
 protocol LaunchInteractingOutput: class {
-    func didGetUserInfo(_ userInfo: UserInfo)
     func didSignIn()
     func didSignUp()
+    func didCreateProject(_ project: Project)
+    func didReceiveProjects(_ projects: [Project])
     func didReceiveError(_ error: Error?)
 }

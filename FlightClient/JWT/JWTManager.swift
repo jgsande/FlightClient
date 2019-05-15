@@ -28,4 +28,12 @@ class JWTManager {
         UserDefaults.standard.set(nil, forKey: JWTTokenConstants.refreshToken.rawValue)
         UserDefaults.standard.set(nil, forKey: JWTTokenConstants.expiredAt.rawValue)
     }
+
+    public func accessToken() -> String? {
+        return UserDefaults.standard.string(forKey: JWTTokenConstants.accessToken.rawValue)
+    }
+
+    public func refreshToken() -> String? {
+        return UserDefaults.standard.string(forKey: JWTTokenConstants.refreshToken.rawValue)
+    }
 }

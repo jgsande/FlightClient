@@ -28,11 +28,42 @@ class LaunchInteractor: LaunchInteracting {
                         guard let self = self else { return }
 
                         self.output?.didSignUp()
-        },
+            },
                        onFailure: { [weak self] (error, _) in
                         guard let self = self else { return }
 
                         self.output?.didReceiveError(error)
         })
+    }
+
+    func getProjects() {
+        TNRouter.start(ProjectsRouter.getProjects,
+                       responseType: [Project].self,
+                       onSuccess: { [weak self] projects in
+                        guard let self = self else { return }
+
+                        self.output?.didReceiveProjects(projects)
+            },
+                       onFailure: { [weak self] (error, _) in
+                        guard let self = self else { return }
+
+                        self.output?.didReceiveError(error)
+        })
+    }
+
+    func createProject(title: String) {
+        TNRouter.start(ProjectsRouter.getProjects,
+                       responseType: Project.self,
+                       onSuccess: { [weak self] project in
+                        guard let self = self else { return }
+
+                        self.output?.didCreateProject(project)
+            },
+                       onFailure: { [weak self] (error, _) in
+                        guard let self = self else { return }
+
+                        self.output?.didReceiveError(error)
+        })
+
     }
 }

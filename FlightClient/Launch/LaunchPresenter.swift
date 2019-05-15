@@ -14,6 +14,14 @@ class LaunchPresenter: LaunchPresenting {
     func signUp(login: String, password: String) {
         interactor.signUp(login: login, password: password)
     }
+
+    func getProjects() {
+        interactor.getProjects()
+    }
+
+    func createProject(title: String) {
+        interactor.createProject(title: title)
+    }
 }
 
 extension LaunchPresenter: LaunchInteractingOutput {
@@ -25,11 +33,15 @@ extension LaunchPresenter: LaunchInteractingOutput {
         view.didSignUp()
     }
 
-    func didGetUserInfo(_ userInfo: UserInfo) {
-        //
+    func didReceiveProjects(_ projects: [Project]) {
+        view.didReceiveProjects(projects)
     }
 
     func didReceiveError(_ error: Error?) {
         view.showErrorMessage(error)
+    }
+
+    func didCreateProject(_ project: Project) {
+        print(project)
     }
 }

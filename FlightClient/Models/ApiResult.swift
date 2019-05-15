@@ -1,14 +1,21 @@
 import Foundation
 import SwiftyJSON
 
-protocol ApiResult: Decodable {
-    static func decodeFrom(json: JSON) -> ApiResult
+protocol ResponseObjectSerializable {
+    static func decodeFrom(json: JSON) -> Self
 }
 
-struct EmptyResponse: ApiResult {
-    static func decodeFrom(json: JSON) -> ApiResult {
+protocol ResponseCollectionSerializable {
+    static func decodeFrom(json: JSON) -> [Self]
+}
+
+struct EmptyResponse: ResponseObjectSerializable {
+    static func decodeFrom(json: JSON) -> EmptyResponse {
         return EmptyResponse()
     }
+}
+
+extension EmptyResponse: Codable {
 }
 
 enum ApiError: Error {

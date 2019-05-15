@@ -25,6 +25,8 @@
 		BEC80D0B2212E82400156B65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEC80D092212E82400156B65 /* Main.storyboard */; };
 		BEC80D0D2212E82600156B65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEC80D0C2212E82600156B65 /* Assets.xcassets */; };
 		BEC80D102212E82600156B65 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEC80D0E2212E82600156B65 /* LaunchScreen.storyboard */; };
+		BECF293D228C269B0066EF3E /* ProjectsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF293C228C269B0066EF3E /* ProjectsRouter.swift */; };
+		BECF293F228C291D0066EF3E /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF293E228C291D0066EF3E /* Project.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		BEC80D0C2212E82600156B65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BEC80D0F2212E82600156B65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BEC80D112212E82600156B65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BECF293C228C269B0066EF3E /* ProjectsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsRouter.swift; sourceTree = "<group>"; };
+		BECF293E228C291D0066EF3E /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,7 @@
 				BE5B7A682248FF0F00BEE7C6 /* ApiResult.swift */,
 				BE5B7A6A2248FFAB00BEE7C6 /* UserInfo.swift */,
 				BE0C76862281D836003B0B19 /* JWTTokens.swift */,
+				BECF293E228C291D0066EF3E /* Project.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -103,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				BE67F4542284332A00C4F63F /* UserRouter.swift */,
+				BECF293C228C269B0066EF3E /* ProjectsRouter.swift */,
 			);
 			path = Routes;
 			sourceTree = "<group>";
@@ -325,9 +331,11 @@
 				BE0C76872281D836003B0B19 /* JWTTokens.swift in Sources */,
 				BEA7407A22131773006D8610 /* LaunchCoordinator.swift in Sources */,
 				BE67F4552284332A00C4F63F /* UserRouter.swift in Sources */,
+				BECF293D228C269B0066EF3E /* ProjectsRouter.swift in Sources */,
 				BE5B7A692248FF0F00BEE7C6 /* ApiResult.swift in Sources */,
 				BEA7408122131A32006D8610 /* LaunchViewController.swift in Sources */,
 				BE67F45A2284871000C4F63F /* JWTManager.swift in Sources */,
+				BECF293F228C291D0066EF3E /* Project.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

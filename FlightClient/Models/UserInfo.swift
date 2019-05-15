@@ -7,8 +7,8 @@ public struct UserInfo {
     let userName: String
 }
 
-extension UserInfo: ApiResult {
-    static func decodeFrom(json: JSON) -> ApiResult {
+extension UserInfo: ResponseObjectSerializable {
+    static func decodeFrom(json: JSON) -> UserInfo {
         let firstName = json["first_name"].stringValue
         let lastName = json["last_name"].stringValue
         let userName = json["user_name"].stringValue
