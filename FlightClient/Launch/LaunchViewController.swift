@@ -32,7 +32,6 @@ class LaunchViewController: UIViewController {
 extension LaunchViewController: LaunchViewable {
     func didSignIn() {
         print("didSignIn")
-        presenter.createProject(title: "Title THIS")
         presenter.getProjects()
     }
 

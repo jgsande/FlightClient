@@ -52,7 +52,7 @@ class LaunchInteractor: LaunchInteracting {
     }
 
     func createProject(title: String) {
-        TNRouter.start(ProjectsRouter.getProjects,
+        TNRouter.start(ProjectsRouter.createProject(title: title),
                        responseType: Project.self,
                        onSuccess: { [weak self] project in
                         guard let self = self else { return }
