@@ -2,7 +2,7 @@ import Foundation
 import SwiftyJSON
 import TermiNetwork
 
-class LaunchInteractor: LaunchInteracting {
+class LaunchInteractor: LaunchInteracting, RefreshMiddleware {
     weak var output: LaunchInteractingOutput?
 
     func signIn(login: String, password: String) {
@@ -37,33 +37,39 @@ class LaunchInteractor: LaunchInteracting {
     }
 
     func getProjects() {
-        TNRouter.start(ProjectsRouter.getProjects,
-                       responseType: [Project].self,
-                       onSuccess: { [weak self] projects in
-                        guard let self = self else { return }
+        DispatchQueue.global().async {
+            self.refreshIfNecessary()
 
-                        self.output?.didReceiveProjects(projects)
-            },
-                       onFailure: { [weak self] (error, _) in
-                        guard let self = self else { return }
+            TNRouter.start(ProjectsRouter.getProjects,
+                           responseType: [Project].self,
+                           onSuccess: { [weak self] projects in
+                            guard let self = self else { return }
 
-                        self.output?.didReceiveError(error)
-        })
+                            self.output?.didGetProjects(projects)
+                },
+                           onFailure: { [weak self] (error, _) in
+                            guard let self = self else { return }
+
+                            self.output?.didReceiveError(error)
+            })
+        }
     }
 
     func createProject(title: String) {
-        TNRouter.start(ProjectsRouter.createProject(title: title),
-                       responseType: Project.self,
-                       onSuccess: { [weak self] project in
-                        guard let self = self else { return }
+        DispatchQueue.global().async {
+            self.refreshIfNecessary()
+            TNRouter.start(ProjectsRouter.createProject(title: title),
+                           responseType: Project.self,
+                           onSuccess: { [weak self] project in
+                            guard let self = self else { return }
 
-                        self.output?.didCreateProject(project)
-            },
-                       onFailure: { [weak self] (error, _) in
-                        guard let self = self else { return }
+                            self.output?.didCreateProject(project)
+                },
+                           onFailure: { [weak self] (error, _) in
+                            guard let self = self else { return }
 
-                        self.output?.didReceiveError(error)
-        })
-
+                            self.output?.didReceiveError(error)
+            })
+        }
     }
 }

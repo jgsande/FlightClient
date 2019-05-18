@@ -11,7 +11,7 @@ protocol LaunchViewable: class {
 
     func didSignIn()
     func didSignUp()
-    func didReceiveProjects(_ projects: [Project])
+    func didGetProjects(_ projects: [Project])
     func showErrorMessage(_ error: Error?)
 }
 
@@ -39,6 +39,6 @@ protocol LaunchInteractingOutput: class {
     func didSignIn()
     func didSignUp()
     func didCreateProject(_ project: Project)
-    func didReceiveProjects(_ projects: [Project])
+    func didGetProjects(_ projects: [Project])
     func didReceiveError(_ error: Error?)
 }

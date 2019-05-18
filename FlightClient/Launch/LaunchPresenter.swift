@@ -33,8 +33,8 @@ extension LaunchPresenter: LaunchInteractingOutput {
         view.didSignUp()
     }
 
-    func didReceiveProjects(_ projects: [Project]) {
-        view.didReceiveProjects(projects)
+    func didGetProjects(_ projects: [Project]) {
+        view.didGetProjects(projects)
     }
 
     func didReceiveError(_ error: Error?) {

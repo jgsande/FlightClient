@@ -36,4 +36,15 @@ class JWTManager {
     public func refreshToken() -> String? {
         return UserDefaults.standard.string(forKey: JWTTokenConstants.refreshToken.rawValue)
     }
+
+    public func expiredAtDate() -> Date? {
+        if let string = UserDefaults.standard.string(forKey: JWTTokenConstants.expiredAt.rawValue) {
+            let dateFormatter = DateFormatter()
+            dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+            return dateFormatter.date(from: string)
+        }
+
+        return nil
+    }
 }
