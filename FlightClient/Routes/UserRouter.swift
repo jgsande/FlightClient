@@ -5,7 +5,6 @@ enum UserRouter: TNRouterProtocol {
     case signIn(login: String, password: String)
     case signUp(login: String, password: String)
     case refreshToken
-    case current
 
     // Set method, path, params, headers for each route
     func configure() -> TNRouteConfiguration {
@@ -32,13 +31,6 @@ enum UserRouter: TNRouterProtocol {
                                         path: path("v1/account/refresh-token"),
                                         params: params,
                                         headers: nil,
-                                        requestConfiguration: configuration)
-        case .current:
-            let headers = ["x-auth": JWTManager.standard.accessToken()!]
-            return TNRouteConfiguration(method: .get,
-                                        path: path("v1/account/current"),
-                                        params: nil,
-                                        headers: headers,
                                         requestConfiguration: configuration)
 
         }
