@@ -9,8 +9,9 @@
 import Foundation
 
 class Fastfile: LaneFile {
-	func customLane() {
-	desc("Description of what the lane does")
-		// add actions here: https://docs.fastlane.tools/actions
+	func betaLane() {
+	desc("Push a new beta build to TestFlight")
+		buildApp(workspace: "FlightClient.xcworkspace", scheme: "FlightClient", exportMethod: "app-store")
+		uploadToTestflight(username: "lowyke@gmail.com")
 	}
 }

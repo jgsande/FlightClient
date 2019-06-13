@@ -8,3 +8,5 @@ struct Project {
 }
 
 extension Project: Codable { }
+
+// swiftlint:enable identifier_name

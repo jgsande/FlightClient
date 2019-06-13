@@ -3,16 +3,8 @@ import UIKit
 class LaunchViewController: UIViewController {
     var presenter: LaunchPresenting!
     weak var coordinator: LaunchCoordinating!
-    @IBOutlet weak var loginTextField: UITextField! {
-        didSet {
-            self.loginTextField.delegate = self
-        }
-    }
-    @IBOutlet weak var passwordTextField: UITextField! {
-        didSet {
-            self.passwordTextField.delegate = self
-        }
-    }
+    @IBOutlet weak var loginTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -50,8 +42,4 @@ extension LaunchViewController: LaunchViewable {
     func didGetProjects(_ projects: [Project]) {
         print(projects)
     }
-}
-
-extension LaunchViewController: UITextFieldDelegate {
-
 }
